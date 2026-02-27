@@ -77,8 +77,8 @@ defmodule Filtrex.Condition.Number do
       allowed_values == nil ->
         {:ok, float}
 
-      Range.range?(allowed_values) ->
-        start..final = allowed_values
+      is_struct(allowed_values, Range) ->
+        start..final//_ = allowed_values
 
         if float >= start and float <= final do
           {:ok, float}
