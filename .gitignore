@@ -5,4 +5,6 @@ erl_crash.dump
 *.ez
 doc/
 docs/all.json
-
+/priv/plts
+.idea/
+*.iml
