@@ -6,3 +6,5 @@ erl_crash.dump
 doc/
 docs/all.json
 /priv/plts
+.idea/
+*.iml
