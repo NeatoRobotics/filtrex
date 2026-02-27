@@ -36,16 +36,16 @@ defmodule Filtrex.Mixfile do
   defp deps do
     [
       {:postgrex, ">= 0.0.0", only: :test},
-      {:ecto, "~> 3.0"},
-      {:ecto_sql, "~> 3.0"},
-      {:timex, "~> 3.1"},
-      {:earmark, "~> 0.1", only: :dev},
-      {:ex_doc, "~> 0.11", only: :dev},
-      {:inch_ex, ">= 0.0.0", only: [:dev, :docs]},
-      {:plug, "~> 1.1.2", only: :test},
-      {:ex_machina, "~> 0.6.1", only: :test},
-      {:mix_test_watch, "~> 0.3", only: :dev, runtime: false},
-      {:dialyxir, "~> 1.2.0", only: [:dev], runtime: false}
+      {:ecto, "~> 3.13"},
+      {:ecto_sql, "~> 3.13"},
+      {:timex, "~> 3.7"},
+      {:earmark, "~> 1.4", only: :dev},
+      {:ex_doc, "~> 0.40", only: :dev},
+      {:inch_ex, "~> 2.1", only: [:dev, :docs]},
+      {:plug, "~> 1.19", only: :test},
+      {:ex_machina, "~> 2.8", only: :test},
+      {:mix_test_watch, "~> 1.4", only: :dev, runtime: false},
+      {:dialyxir, "~> 1.4", only: [:dev], runtime: false}
     ]
   end
 
