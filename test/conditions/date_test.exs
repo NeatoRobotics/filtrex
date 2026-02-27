@@ -41,7 +41,7 @@ defmodule FiltrexConditionDateTest do
              comparator: "between"
            }) ==
              {:error,
-              "Invalid date value format: Expected `1-2 digit month` at line 1, column 6."}
+              "Invalid date value format: Expected `2 digit month` at line 1, column 6."}
   end
 
   test "specifying different date formats" do

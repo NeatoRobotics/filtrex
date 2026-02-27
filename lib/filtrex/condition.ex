@@ -82,12 +82,12 @@ defmodule Filtrex.Condition do
   def param_key_type(configs, key_with_comparator) do
     result =
       Enum.find_value(condition_modules(), fn module ->
-        Enum.find_value(module.comparators, fn comparator ->
+        Enum.find_value(module.comparators(), fn comparator ->
           normalized = "_" <> String.replace(comparator, " ", "_")
           key = String.replace_trailing(key_with_comparator, normalized, "")
           config = Filtrex.Type.Config.config(configs, key)
 
-          if !is_nil(config) and key in config.keys and config.type == module.type do
+          if !is_nil(config) and key in config.keys and config.type == module.type() do
             {:ok, module, config, key, comparator}
           end
         end)
@@ -141,7 +141,7 @@ defmodule Filtrex.Condition do
     iodata =
       Inspect.Algebra.to_doc(column, opts)
       |> Inspect.Algebra.format(opts.width)
-      |> Enum.join()
+      |> IO.iodata_to_binary()
 
     if String.length(iodata) <= 15 do
       parse_value_type_error("'#{iodata}'", filter_type)
@@ -158,7 +158,7 @@ defmodule Filtrex.Condition do
 
   defp condition_module(type) do
     Enum.find(condition_modules(), fn module ->
-      type == to_string(module.type)
+      type == to_string(module.type())
     end)
   end
 end
