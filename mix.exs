@@ -4,7 +4,7 @@ defmodule Filtrex.Mixfile do
   def project do
     [
       app: :filtrex,
-      version: "0.5.0",
+      version: "0.5.1",
       description: description(),
       package: package(),
       build_embedded: Mix.env() == :prod,
